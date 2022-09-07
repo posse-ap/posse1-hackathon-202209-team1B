@@ -32,4 +32,14 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function rental_logs()
+    {
+        return $this->hasMany(RentalLog::class);
+    }
+
+    public function getLatestRentalLog()
+    {
+        return $this->rental_logs()->where("return_date", null)->first();
+    }
 }
