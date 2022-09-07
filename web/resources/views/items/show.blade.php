@@ -9,7 +9,7 @@
         <div>
             <h3 class="PHeading3 border-b-2 py-6">{{ $item->name }}</h3>
             <div>
-                <form action="", method="POST" class="border-b-2 py-4">
+                <form action="{{ route('items.store', ['id' => $item->id]) }}" method="POST" class="border-b-2 py-4">
                     @csrf
                     <div class="w-80 mx-auto">
                         <div class="py-4">
@@ -17,15 +17,12 @@
                             <div class="flex items-center">
                                 <input
                                     class="inlin-block text-sm rounded-lg border border-gray-300 cursor-pointer focus:outline-none"
-                                    name="start_date"
-                                    type="date"
-                                >
+                                    name="start_date" type="date" value="{{ date('Y-m-d') }}" disabled>
                                 <span class="px-2">〜</span>
                                 <input
                                     class="inlin-block text-sm rounded-lg border border-gray-300 cursor-pointer focus:outline-none"
-                                    name="end_date"
-                                    type="date"
-                                >
+                                    name="end_date" type="date" min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                                    required>
                             </div>
                         </div>
                         <div class="py-4">
