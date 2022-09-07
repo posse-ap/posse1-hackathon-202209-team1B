@@ -59,10 +59,11 @@
                     画像
                 </label>
                 <div>
-                    <img id="edit_fixtures_image_preview" width="260" class="mx-auto mb-4">
+                    <img id="edit_fixtures_image_preview" width="260" class="mx-auto mb-4"
+                        src="{{ \Storage::url($item->image_path) }}">
                 </div>
-                <input class="block w-full text-sm rounded cursor-pointer " id="edit_fixtures_image"
-                    name="edit_fixtures_image" type="file">
+                <input class="block w-full text-sm rounded cursor-pointer" id="edit_fixtures_image" name="image"
+                    type="file">
                 @if ($errors->has('edit_fixtures_image'))
                     <p class="text-red-500 text-xs italic">{{ $errors->first('edit_fixtures_image') }}</p>
                 @endif

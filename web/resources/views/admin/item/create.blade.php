@@ -61,8 +61,8 @@
                 <div>
                     <img id="create_new_fixtures_image_preview" width="260" class="mx-auto mb-4">
                 </div>
-                <input class="block w-full text-sm rounded cursor-pointer" id="create_new_fixtures_image"
-                    name="create_new_fixtures_image" type="file">
+                <input class="block w-full text-sm rounded cursor-pointer" id="create_new_fixtures_image" name="image"
+                    type="file">
                 @if ($errors->has('create_new_fixtures_image'))
                     <p class="text-red-500 text-xs italic">{{ $errors->first('create_new_fixtures_image') }}</p>
                 @endif
