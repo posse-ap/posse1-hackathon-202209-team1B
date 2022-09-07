@@ -2,7 +2,7 @@
     <div class="bg-hero-pattern bg-cover w-full flex flex-col items-center">
         <h1 class="text-white font-bold text-3xl py-8 mt-4">コミュニティで作る、POSSEのライブラリ</h1>
         <div class="grow py-4 mb-8">
-            <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center shadow">
+            <form method="GET" action="{{ route('items_list.keyword_search') }}" class="flex items-center shadow">
                 <div class="container flex mx-auto">
                     <div class="flex relative">
                         <input class="px-8 py-2 w-80 border-slate-300 rounded"
