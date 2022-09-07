@@ -6,7 +6,7 @@
                 <div class="container flex mx-auto">
                     <div class="flex relative">
                         <input class="px-8 py-2 w-80 border-slate-300 rounded"
-                        type="search" placeholder="キーワードで検索" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                        type="search" placeholder="キーワードで検索" name="search" value="">
                         <svg class="w-6 h-6 text-gray-600 absolute top-2 left-2" fill="#C6C9CC" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24">
                             <path
@@ -15,7 +15,6 @@
                         </svg>
                     </div>
                 </div>
-            </form>
         </div>
     </div>
     <div class="h-full px-8 sm:px-12 lg:px-24">
