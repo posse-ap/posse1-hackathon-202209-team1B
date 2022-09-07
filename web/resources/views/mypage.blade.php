@@ -51,6 +51,13 @@
 
             <div class="my-10">
                 <h2 class="text-2xl font-bold text-center mt-8 mb-12">履歴</h2>
+                <div class="flex justify-center py-4">
+                        @foreach ($rental_logs as $rental_log)
+                            <p>{{$rental_log->start_date}}</p>
+                            <p>{{$rental_log->end_date}}</p>
+                            <p>{{$rental_log->end_date}}</p>
+                        @endforeach
+                </div>
             </div>
 
             <div class="my-10">

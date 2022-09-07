@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('items/{id}', [ItemController::class, 'store'])->name('items.store');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
     Route::post('mypage/update',[MypageController::class,'update'])->name('mypage.update');
+    Route::get('mypage/logs', [MypageController::class, 'show'])->name('mypage.show');
 });
 
 Route::prefix('items')->group(function () {
