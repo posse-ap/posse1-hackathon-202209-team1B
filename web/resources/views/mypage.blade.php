@@ -3,17 +3,21 @@
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white overflow-hidden">
             <div class="my-10">
                 <h2 class="text-2xl font-bold text-center mt-8 mb-12">ユーザー情報</h2>
-                <form method="POST" action="{{route('mypage.update')}}">
+                <form method="POST" action="{{ route('mypage.update') }}">
                     @csrf
 
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">メールアドレス</label>
-                        <input class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight" name="email">
+                        <input
+                            class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+                            name="email" type="email" required>
                     </div>
 
                     <div class="mt-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">お名前</label>
-                        <input class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight" name="name">
+                        <input
+                            class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+                            name="name" required>
                     </div>
 
                     <div class="flex items-center justify-end flex-col mt-8">

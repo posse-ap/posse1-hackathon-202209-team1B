@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangeUserInformationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class MypageController extends Controller
         return view('mypage');
     }
 
-    public function update(Request $request)
+    public function update(ChangeUserInformationRequest $request)
     {
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
