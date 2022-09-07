@@ -5,7 +5,7 @@
             action="{{ route('admin.items.update', ['id' => $item->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="is_public">
                     公開
                 </label>
@@ -26,7 +26,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="category_id">
                     カテゴリ
                 </label>
@@ -43,7 +43,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                     名前
                 </label>
@@ -54,11 +54,13 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="edit_fixtures_image">
+                    画像
+                </label>
                 <div>
-                    <img id="edit_fixtures_image_preview">
+                    <img id="edit_fixtures_image_preview" width="260" class="mx-auto mb-4">
                 </div>
-                <label class="block mb-2 text-sm font-medium" for="edit_fixtures_image">画像</label>
                 <input class="block w-full text-sm rounded cursor-pointer " id="edit_fixtures_image"
                     name="edit_fixtures_image" type="file">
                 @if ($errors->has('edit_fixtures_image'))
@@ -66,7 +68,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="available_days">
                     利用目安
                 </label>
@@ -77,7 +79,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="provider">
                     提供
                 </label>
@@ -88,12 +90,12 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="provider">登録日時</label>
                 <p>{{ $item->created_at }}</p>
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="provider">更新日時</label>
                 <p>{{ $item->updated_at }}</p>
             </div>

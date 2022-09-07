@@ -1,11 +1,11 @@
 <x-admin-layout>
     <h2 class="text-2xl font-bold text-center mt-8 mb-12">備品：新規登録</h2>
     <div class="flex justify-center">
-        <form class="bg-white px-8 pt-6 pb-8 mb-4 w-96 sm:w-1/3" action="{{ route('admin.items.store') }}" method="POST"
+        <form class="bg-white px-8 pt-6 pb-8 w-96 sm:w-1/3" action="{{ route('admin.items.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="is_public">
                     公開
                 </label>
@@ -26,7 +26,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="category_id">
                     カテゴリ
                 </label>
@@ -43,7 +43,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                     名前
                 </label>
@@ -54,19 +54,21 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="create_new_fixtures_image">
+                    画像
+                </label>
                 <div>
-                    <img id="create_new_fixtures_image_preview">
+                    <img id="create_new_fixtures_image_preview" width="260" class="mx-auto mb-4">
                 </div>
-                <label class="block mb-2 text-sm font-medium" for="create_new_fixtures_image">画像</label>
-                <input class="block w-full text-sm rounded cursor-pointer "
-                    id="create_new_fixtures_image" name="create_new_fixtures_image" type="file">
+                <input class="block w-full text-sm rounded cursor-pointer" id="create_new_fixtures_image"
+                    name="create_new_fixtures_image" type="file">
                 @if ($errors->has('create_new_fixtures_image'))
                     <p class="text-red-500 text-xs italic">{{ $errors->first('create_new_fixtures_image') }}</p>
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="available_days">
                     利用目安
                 </label>
@@ -77,7 +79,7 @@
                 @endif
             </div>
 
-            <div class="mb-4 mb-10">
+            <div class="mb-10">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="provider">
                     提供
                 </label>
