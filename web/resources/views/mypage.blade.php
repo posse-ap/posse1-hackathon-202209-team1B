@@ -29,12 +29,12 @@
 
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">パスワード</label>
-                        <input class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight">
+                        <input type="password" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight">
                     </div>
 
                     <div class="mt-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">パスワード（確認用）</label>
-                        <input class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight">
+                        <input  type="password" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight">
                     </div>
 
                     <div class="flex items-center justify-end flex-col mt-8">
