@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('items_list')->group(function () {
-    Route::get('/search', [ItemListController::class, 'index'])->name('items_list.search');
+    Route::get('/keyword_search', [ItemListController::class, 'keyword_search'])->name('items_list.keyword_search');
 });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
