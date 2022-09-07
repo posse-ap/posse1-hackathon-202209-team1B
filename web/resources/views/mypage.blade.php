@@ -54,10 +54,14 @@
                 <h2 class="text-2xl font-bold text-center mt-8 mb-12">履歴</h2>
                 <div class="flex justify-center py-4">
                         @foreach ($rental_logs as $rental_log)
-                        <p></p>
-                            <p>{{$rental_log['start_date']->format('Y-m-d')}}</p>
-                            <p>{{$rental_log['end_date']->format('Y-m-d')}}</p>
-                            <p>{{$rental_log->item->name}}</p>
+                        @if(isset( $rental_log->return_date ))
+                        <p class="mx-4">返却済み</p>
+                        @else
+                        @endif
+                        <p class="mx-4">{{$rental_log['start_date']->format('Y-m-d')}}</p>
+                        <p>〜</p>
+                        <p class="mx-4">{{$rental_log['end_date']->format('Y-m-d')}}</p>
+                        <p class="mx-4">{{$rental_log->item->name}}</p>
                         @endforeach
                 </div>
             </div>

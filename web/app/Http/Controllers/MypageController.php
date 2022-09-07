@@ -15,10 +15,7 @@ class MypageController extends Controller
         $user_id = Auth::user()->id;
         $rental_logs = RentalLog::where("user_id" , $user_id)->get();
         $items = RentalLog::where('user_id', Auth::id())->with('item')->get();
-        // dd($items);
-
         return view('mypage', compact('rental_logs','items'));
-
     }
 
     public function update(ChangeUserInformationRequest $request)
