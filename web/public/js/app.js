@@ -5503,28 +5503,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (() => {
 
 window.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("create_new_fixtures_image").addEventListener("change", function (event) {
-    var file = event.target.files[0];
-    if (!file) return;
-    var reader = new FileReader();
+  if (document.getElementById("create_new_fixtures_image") !== null) {
+    document.getElementById("create_new_fixtures_image").addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
 
-    reader.onload = function (event) {
-      document.querySelector("#create_new_fixtures_image_preview").src = event.target.result;
-    };
+      reader.onload = function (event) {
+        document.querySelector("#create_new_fixtures_image_preview").src = event.target.result;
+      };
 
-    reader.readAsDataURL(file);
-  });
-  document.getElementById("edit_fixtures_image").addEventListener("change", function (event) {
-    var file = event.target.files[0];
-    if (!file) return;
-    var reader = new FileReader();
+      reader.readAsDataURL(file);
+    });
+  }
 
-    reader.onload = function (event) {
-      document.querySelector("#edit_fixtures_image_preview").src = event.target.result;
-    };
+  if (document.getElementById("edit_fixtures_image") !== null) {
+    document.getElementById("edit_fixtures_image").addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
 
-    reader.readAsDataURL(file);
-  });
+      reader.onload = function (event) {
+        document.querySelector("#edit_fixtures_image_preview").src = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
 });
 
 /***/ }),
