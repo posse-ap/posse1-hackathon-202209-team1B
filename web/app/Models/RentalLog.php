@@ -27,8 +27,13 @@ class RentalLog extends Model
         'return_date',
     ];
 
-    public static function getItemIsAvailable(int $item_id)
+    public static function getCurrentUser(int $item_id)
     {
-        return self::where("item_id", $item_id)->where("return_date", null)->doesntExist();
+        $item = self::where("item_id", $item_id)->where("return_date", null)->first();
+        if ($item) {
+            return $item->user_id;
+        } else {
+            return null;
+        }
     }
 }

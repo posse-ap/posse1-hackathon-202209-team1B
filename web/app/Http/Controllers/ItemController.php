@@ -18,7 +18,7 @@ class ItemController extends Controller
 
     public function store(ItemUseRequest $request, int $id)
     {
-        if (RentalLog::getItemIsAvailable($id)) {
+        if (is_null(RentalLog::getCurrentUser($id))) {
             $start_date = Carbon::today()->toDateString();
             $end_date = $request->end_date;
             RentalLog::create([
