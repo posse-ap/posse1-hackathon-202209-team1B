@@ -5442,11 +5442,14 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var _img_preview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img_preview */ "./resources/js/img_preview.js");
+/* harmony import */ var _img_preview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_img_preview__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 
 
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
+
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].start();
 
 /***/ }),
 
@@ -5490,6 +5493,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+/***/ }),
+
+/***/ "./resources/js/img_preview.js":
+/*!*************************************!*\
+  !*** ./resources/js/img_preview.js ***!
+  \*************************************/
+/***/ (() => {
+
+document.getElementById("create_new_fixtures_image").addEventListener("change", function (e) {
+  // 1枚だけ表示する
+  var file = event.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+
+  reader.onload = function (event) {
+    document.querySelector("#create_new_fixtures_image_preview").src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
 
 /***/ }),
 
