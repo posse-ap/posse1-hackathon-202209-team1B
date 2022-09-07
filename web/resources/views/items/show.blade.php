@@ -26,7 +26,11 @@
                             </div>
                         </div>
                         <div class="py-4">
-                            <button type="submit" class="PButton-primary w-full">利用申請を行う</button>
+                            @if (is_null($current_user))
+                                <button type="submit" class="PButton-primary w-full">利用申請を行う</button>
+                            @else
+                                <button type="button" class="PButton-gray w-full">現在利用できません</button>
+                            @endif
                         </div>
                     </div>
                 </form>

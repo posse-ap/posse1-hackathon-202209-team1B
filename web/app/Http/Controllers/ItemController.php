@@ -13,7 +13,8 @@ class ItemController extends Controller
     public function show(int $id)
     {
         $item = Item::where('id', $id)->with('category')->first();
-        return view('items.show', compact('item'));
+        $current_user = RentalLog::getCurrentUser($id);
+        return view('items.show', compact('item', 'current_user'));
     }
 
     public function store(ItemUseRequest $request, int $id)
