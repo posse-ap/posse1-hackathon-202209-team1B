@@ -55,8 +55,8 @@
                 <div class="flex justify-center py-4">
                         @foreach ($rental_logs as $rental_log)
                         <p></p>
-                            <p>{{$rental_log->start_date}}</p>
-                            <p>{{$rental_log->end_date}}</p>
+                            <p>{{$rental_log['start_date']->format('Y-m-d')}}</p>
+                            <p>{{$rental_log['end_date']->format('Y-m-d')}}</p>
                             <p>{{$rental_log->item->name}}</p>
                         @endforeach
                 </div>
