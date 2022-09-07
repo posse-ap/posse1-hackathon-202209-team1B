@@ -16,7 +16,7 @@ class ItemController extends Controller
         return view('items.show', compact('item'));
     }
 
-    public function apply(ItemUseRequest $request, int $id)
+    public function store(ItemUseRequest $request, int $id)
     {
         if (RentalLog::getItemIsAvailable($id)) {
             $start_date = Carbon::today()->toDateString();
