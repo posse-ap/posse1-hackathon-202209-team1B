@@ -5,7 +5,7 @@
                 <img src="/img/logo.png" alt="logo"><span class="font-bold">ライブラリ</span>
             </a>
             <div class="ml-12">
-                <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center shadow">
+                <form method="GET" action="{{ route('items_list.keyword_search') }}" class="flex items-center shadow">
                     <div class="container flex mx-auto">
                         <div class="flex relative">
                             <input class="px-8 py-2 w-80 border-slate-300 rounded"
