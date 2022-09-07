@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class ItemListController extends Controller
@@ -11,9 +12,16 @@ class ItemListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // $test = $this->WhereLike(); // 入会完了メールが送信される
+        $keyword = $request->input('search') ?? '';
+        // キーワードのメタ文字をエスケープして商品名を検索
+        $pat = '%' . addcslashes($keyword, '%_\\') . '%';
+        $rows = Item::where('name', 'LIKE', $pat)->get();
+        dd($rows);
+        // return response()->json($rows);
+        // return $rows;
     }
 
     /**
