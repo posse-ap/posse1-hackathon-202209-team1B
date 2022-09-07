@@ -31,4 +31,14 @@ class ItemController extends Controller
         };
         return back();
     }
+
+    public function update(ItemUseRequest $request, int $id)
+    {
+        $rental_log = RentalLog::find($id);
+        if ($rental_log && $rental_log->user_id == Auth::id()) {
+            $rental_log->end_date = $request->end_date;
+            $rental_log->save();
+        }
+        return back();
+    }
 }
