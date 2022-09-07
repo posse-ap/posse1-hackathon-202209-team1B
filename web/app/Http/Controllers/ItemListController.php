@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ItemListController extends Controller
 {
-    public function index(Request $request)
+    public function keyword_search(Request $request)
     {
         $keyword = $request->input('search') ?? '';
         $pat = '%' . addcslashes($keyword, '%_\\') . '%';
