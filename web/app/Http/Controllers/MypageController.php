@@ -12,10 +12,9 @@ class MypageController extends Controller
 {
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $rental_logs = RentalLog::where("user_id" , $user_id)->get();
-        $items = RentalLog::where('user_id', Auth::id())->with('item')->get();
-        return view('mypage', compact('rental_logs','items'));
+        $user_id = Auth::id();
+        $rental_logs = RentalLog::with('item')->where('user_id', $user_id)->get();
+        return view('mypage', compact('rental_logs'));
     }
 
     public function update(ChangeUserInformationRequest $request)

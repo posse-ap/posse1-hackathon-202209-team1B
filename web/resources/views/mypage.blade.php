@@ -50,29 +50,38 @@
             </div>
         </div>
 
-            <div class="my-10">
-                <h2 class="text-2xl font-bold text-center mt-8 mb-12">履歴</h2>
-                <div class="flex justify-center py-4">
-                        @foreach ($rental_logs as $rental_log)
-                        @if(isset( $rental_log->return_date ))
-                        <p class="mx-4">返却済み</p>
+        <div class="my-10">
+            <h2 class="text-2xl font-bold text-center mt-8 mb-12">履歴</h2>
+            <div class="border-t-2">
+                @foreach ($rental_logs as $rental_log)
+                    <div class="flex justify-center py-4 border-b-2 px-20 w-[1240px]">
+                        @if (isset($rental_log->return_date))
+                            <p class="mx-4 w-1/12 text-right font-bold my-auto">返却済み</p>
                         @else
+                            <p class="mx-4 w-1/12 text-right font-bold my-auto"></p>
                         @endif
-                        <p class="mx-4">{{$rental_log['start_date']->format('Y-m-d')}}</p>
-                        <p>〜</p>
-                        <p class="mx-4">{{$rental_log['end_date']->format('Y-m-d')}}</p>
-                        <p class="mx-4">{{$rental_log->item->name}}</p>
-                        @endforeach
-                </div>
-            </div>
-
-            <div class="my-10">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <div class="text-center">
-                        <button type="submit" class="PButton-red w-full">ログアウト</button>
+                        <p class="mx-4 w-3/12 text-center my-auto">
+                            <span>
+                                {{ $rental_log['start_date']->format('Y-m-d') }}
+                            </span>
+                            ~
+                            <span>
+                                {{ $rental_log['end_date']->format('Y-m-d') }}
+                            </span>
+                        </p>
+                        <p class="mx-4 w-7/12 my-auto">{{ $rental_log->item->name }}</p>
                     </div>
-                </form>
+                @endforeach
             </div>
+        </div>
+
+        <div class="my-10">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <div class="text-center">
+                    <button type="submit" class="PButton-red w-full">ログアウト</button>
+                </div>
+            </form>
+        </div>
     </div>
 </x-app-layout>
