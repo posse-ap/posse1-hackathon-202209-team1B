@@ -43,6 +43,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('items/{id}', [ItemController::class, 'show'])->name('items.show');
+    Route::post('items/{id}', [ItemController::class, 'apply'])->name('items.apply');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
 });
 
