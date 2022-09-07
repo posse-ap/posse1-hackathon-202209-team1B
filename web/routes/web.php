@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminItemController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\MypageController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,8 +47,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
 });
 
-Route::prefix('items')->group(function () {
-    Route::get('/search', [ItemController::class, 'search'])->name('items.search');
+Route::prefix('items_list')->group(function () {
+    Route::get('/search', [ItemListController::class, 'index'])->name('items_list.search');
 });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
