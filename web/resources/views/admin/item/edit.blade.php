@@ -55,11 +55,14 @@
             </div>
 
             <div class="mb-4 mb-10">
-                <label class="block mb-2 text-sm font-medium" for="image">画像</label>
-                <input class="block w-full text-sm rounded cursor-pointer " id="image" name="image"
-                    type="file">
-                @if ($errors->has('image'))
-                    <p class="text-red-500 text-xs italic">{{ $errors->first('image') }}</p>
+                <div>
+                    <img id="edit_fixtures_image_preview">
+                </div>
+                <label class="block mb-2 text-sm font-medium" for="edit_fixtures_image">画像</label>
+                <input class="block w-full text-sm rounded cursor-pointer " id="edit_fixtures_image"
+                    name="edit_fixtures_image" type="file">
+                @if ($errors->has('edit_fixtures_image'))
+                    <p class="text-red-500 text-xs italic">{{ $errors->first('edit_fixtures_image') }}</p>
                 @endif
             </div>
 
