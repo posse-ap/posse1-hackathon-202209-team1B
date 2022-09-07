@@ -23,18 +23,31 @@
             </div>
 
             <div class="my-10">
+                {{-- @if ()
+                <div {{ $attributes }}>
+                    <div class="font-medium text-red-600">
+                        {{ __('問題が発生しました。') }}
+                    </div>
+                    <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif --}}
+
                 <h2 class="text-2xl font-bold text-center mt-8 mb-12">パスワード</h2>
-                <form method="POST" action="/">
+                <form method="POST" action="{{route('mypage.password_update')}}">
                     @csrf
 
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">パスワード</label>
-                        <input type="password" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight">
+                        <input type="password" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight" name="password">
                     </div>
 
                     <div class="mt-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">パスワード（確認用）</label>
-                        <input  type="password" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight">
+                        <input  type="password" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight" name="password">
                     </div>
 
                     <div class="flex items-center justify-end flex-col mt-8">

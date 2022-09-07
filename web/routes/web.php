@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('items/{id}', [ItemController::class, 'show'])->name('items.show');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
     Route::post('mypage/update',[MypageController::class,'update'])->name('mypage.update');
+    Route::post('mypage/password_update',[MypageController::class,'password_update'])->name('mypage.password_update');
 });
 
 Route::prefix('items')->group(function () {
