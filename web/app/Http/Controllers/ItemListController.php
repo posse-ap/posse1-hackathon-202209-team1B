@@ -12,6 +12,7 @@ class ItemListController extends Controller
         $keyword = $request->input('search') ?? '';
         $pat = '%' . addcslashes($keyword, '%_\\') . '%';
         $items = Item::where('name', 'LIKE', $pat)->get();
-        return view('items_list.index', compact('items'));
+        $items_amount = $items->count();
+        return view('items_list.index', compact('items' , 'items_amount'));
     }
 }
