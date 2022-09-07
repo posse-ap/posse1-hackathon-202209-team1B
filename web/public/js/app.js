@@ -5502,7 +5502,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \*************************************/
 /***/ (() => {
 
-document.getElementById("create_new_fixtures_image").addEventListener("change", function (e) {
+document.getElementById("create_new_fixtures_image").addEventListener("change", function (event) {
   // 1枚だけ表示する
   var file = event.target.files[0];
   if (!file) return;

@@ -1,6 +1,6 @@
 document
     .getElementById("create_new_fixtures_image")
-    .addEventListener("change", function (e) {
+    .addEventListener("change", function (event) {
         // 1枚だけ表示する
         const file = event.target.files[0];
         if (!file) return;
