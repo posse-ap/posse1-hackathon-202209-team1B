@@ -8,6 +8,7 @@ use App\Models\RentalLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class MypageController extends Controller
 {
@@ -30,6 +31,10 @@ class MypageController extends Controller
 
     public function password_update(Request $request)
     {
+        $request->validate([
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
         $user->password = Hash::make($request->password);
