@@ -23,7 +23,10 @@
             </div>
         </div>
     </form>
-    <form action="" class="border-b-2 pb-8">
+    <form method="POST" action="{{ route('items.return', ['id' => $item->getLatestRentalLog()->id]) }}"
+        class="border-b-2 pb-8">
+        @csrf
+        @method('PUT')
         <div class="w-80 mx-auto mt-8">
             <button type="submit" class="PButton-red w-full">返却する</button>
         </div>

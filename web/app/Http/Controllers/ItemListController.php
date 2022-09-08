@@ -12,6 +12,15 @@ class ItemListController extends Controller
         $keyword = $request->input('search') ?? '';
         $pat = '%' . addcslashes($keyword, '%_\\') . '%';
         $items = Item::where('name', 'LIKE', $pat)->get();
+        dd($items);
+        return view('items_list.index', compact('items'));
+    }
+
+    public function tag_search($tag_name)
+    {
+        $pat = '%' . addcslashes($tag_name, '%_\\') . '%';
+        $items = Item::where('name', 'LIKE', $pat)->get();
+        dd($items);
         return view('items_list.index', compact('items'));
     }
 }
