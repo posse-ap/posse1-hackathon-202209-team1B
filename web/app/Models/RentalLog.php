@@ -9,6 +9,12 @@ class RentalLog extends Model
 {
     use HasFactory;
 
+    protected $dates = [
+        'start_date',
+        'end_date',
+        'return_date',
+    ];
+
     public function item()
     {
         return $this->belongsTo(Item::class);
@@ -36,4 +42,6 @@ class RentalLog extends Model
             return null;
         }
     }
+
+
 }
