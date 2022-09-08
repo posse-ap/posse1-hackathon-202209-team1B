@@ -20,7 +20,6 @@ class ItemListController extends Controller
     {
         $pat = '%' . addcslashes($tag_name, '%_\\') . '%';
         $items = Item::where('name', 'LIKE', $pat)->get();
-        dd($items);
         return view('items_list.index', compact('items'));
     }
 }
