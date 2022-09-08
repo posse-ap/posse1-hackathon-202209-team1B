@@ -30,12 +30,14 @@ class Item extends Model
 
     public static function availableSoonItems(): Collection
     {
-        $items = self::with('rental_logs')->whereHas('rental_logs', function($q){
-            $q->where('return_date',null);
-        })->get();
-        return $items->filter(function ($item, $key) {
-            return $item::whereDate('end_date', '<=',Carbon::now()->addDays(3));
-            });
+        $items = self::with(['rental_logs' => function($query) {
+            $query->where('return_date',null)->whereDate('end_date', '<=',Carbon::now()->addDays(3));
+        }])
+        ->whereHas('rental_logs',function($query) {
+            $query->where('return_date',null)->whereDate('end_date', '<=',Carbon::now()->addDays(3));
+        })
+        ->get();
+        return $items;
     }
 
     public function category()
