@@ -24,7 +24,9 @@ class Item extends Model
     public static function latestItems(): Collection
     {
         return self::whereDate('created_at', '>=', Carbon::now()->subDays(self::LATEST_ITEMS_DAYS))
-            ->with('category')->with('rental_logs.user')
+            ->with('category')->with(['rental_logs'=> function ($query){
+                $query->where('return_date',NULL)->with('user');
+            }])
             ->get();
     }
 
