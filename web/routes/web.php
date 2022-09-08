@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('items/{id}', [ItemController::class, 'show'])->name('items.show');
     Route::post('items/{id}', [ItemController::class, 'store'])->name('items.store');
     Route::put('items/{id}', [ItemController::class, 'update'])->name('items.update');
+    Route::put('itemas/{id}', [ItemController::class, 'return'])->name('items.return');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
     Route::post('mypage/update',[MypageController::class,'update'])->name('mypage.update');
     Route::get('mypage/logs', [MypageController::class, 'show'])->name('mypage.show');
