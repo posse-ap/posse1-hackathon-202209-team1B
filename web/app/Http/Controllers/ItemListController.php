@@ -15,4 +15,12 @@ class ItemListController extends Controller
         $items_amount = $items->count();
         return view('items_list.index', compact('items' , 'items_amount'));
     }
+
+    public function tag_search($tag_name)
+    {
+        $pat = '%' . addcslashes($tag_name, '%_\\') . '%';
+        $items = Item::where('name', 'LIKE', $pat)->get();
+        dd($items);
+        return view('items_list.index', compact('items'));
+    }
 }
