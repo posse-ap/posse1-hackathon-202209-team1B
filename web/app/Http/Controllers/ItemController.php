@@ -12,7 +12,7 @@ class ItemController extends Controller
 {
     public function show(int $id)
     {
-        $item = Item::where('id', $id)->with('category')->first();
+        $item = Item::where('id', $id)->with('category')->withRentalLogsWithUser()->first();
         $current_user = RentalLog::getCurrentUser($id);
         return view('items.show', compact('item', 'current_user'));
     }

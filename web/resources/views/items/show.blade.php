@@ -2,6 +2,12 @@
 
     <div class="grid grid-cols-2 gap-8 mt-8 px-0 md:px-32">
         <div>
+            <div class="text-left flex mb-2 text-lg">
+                @if ($item->rental_logs->first())
+                    <p class="h-7 font-bold">{{ $item->rental_logs->first()->user->name }}さんが利用中</p>
+                    <p class="h-7 font-bold">（〜{{ $item->rental_logs->first()->end_date->format('m/d') }}）</p>
+                @endif
+            </div>
             <div class="bg-slate-100 text-center">
                 <img class="inline-block object-contain h-96 w-96" src="{{ \Storage::url($item->image_path) }}">
             </div>
