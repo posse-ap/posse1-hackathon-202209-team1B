@@ -44,7 +44,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('items/{id}', [ItemController::class, 'show'])->name('items.show');
+    Route::post('items/{id}', [ItemController::class, 'store'])->name('items.store');
+    Route::put('items/{id}', [ItemController::class, 'update'])->name('items.update');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
+    Route::post('mypage/update',[MypageController::class,'update'])->name('mypage.update');
+    Route::get('mypage/logs', [MypageController::class, 'show'])->name('mypage.show');
 });
 
 Route::prefix('items_list')->group(function () {
