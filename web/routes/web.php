@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminItemController;
+use App\Http\Controllers\Admin\AdminRentalLogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemListController;
@@ -40,6 +41,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::post('/{id}/update', [AdminItemController::class, 'update'])->name('admin.items.update');
         Route::delete('/{id}/delete', [AdminItemController::class, 'destroy'])->name('admin.items.delete');
     });
+
+    Route::get('rental_logs', [AdminRentalLogController::class, 'index'])->name('admin.rental_logs.index');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -48,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('items/{id}', [ItemController::class, 'update'])->name('items.update');
     Route::put('itemas/{id}', [ItemController::class, 'return'])->name('items.return');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
-    Route::post('mypage/update', [MypageController::class, 'update'])->name('mypage.update');
+    Route::post('mypage/update',  [MypageController::class,  'update'])->name('mypage.update');
     Route::post('mypage/password_update', [MypageController::class, 'password_update'])->name('mypage.password_update');
     Route::get('mypage/logs', [MypageController::class, 'show'])->name('mypage.show');
 });
