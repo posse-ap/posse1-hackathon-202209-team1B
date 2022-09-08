@@ -21,6 +21,7 @@ class ItemListController extends Controller
     {
         $pat = '%' . addcslashes($tag_name, '%_\\') . '%';
         $items = Item::where('name', 'LIKE', $pat)->get();
-        return view('items_list.index', compact('items'));
+        $items_amount = $items->count();
+        return view('items_list.index', compact('items' , 'items_amount'));
     }
 }
