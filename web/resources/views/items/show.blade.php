@@ -1,5 +1,7 @@
 <x-app-layout>
-
+    @if ($current_user == Auth::id())
+        <div class="w-screen leading-[65px] text-xl text-center bg-[#D6E6DD] text-[#264F34] font-bold">利用申請済みです</div>
+    @endif
     <div class="grid grid-cols-2 gap-8 mt-8 px-0 md:px-32">
         <div>
             <div class="text-left flex mb-2 text-lg">
