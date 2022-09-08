@@ -1,39 +1,26 @@
 <x-app-layout>
-
+    @if ($current_user == Auth::id())
+        <div class="w-screen leading-[65px] text-xl text-center bg-[#D6E6DD] text-[#264F34] font-bold">利用申請済みです</div>
+    @endif
     <div class="grid grid-cols-2 gap-8 mt-8 px-0 md:px-32">
         <div>
+            <div class="text-left flex mb-2 text-lg">
+                @if ($item->rental_logs->first())
+                    <p class="h-7 font-bold">{{ $item->rental_logs->first()->user->name }}さんが利用中</p>
+                    <p class="h-7 font-bold">（〜{{ $item->rental_logs->first()->end_date->format('m/d') }}）</p>
+                @endif
+            </div>
             <div class="bg-slate-100 text-center">
                 <img class="inline-block object-contain h-96 w-96" src="{{ \Storage::url($item->image_path) }}">
             </div>
         </div>
         <div>
             <h3 class="PHeading3 border-b-2 py-6">{{ $item->name }}</h3>
-            <div>
-                <form action="", method="POST" class="border-b-2 py-4">
-                    @csrf
-                    <div class="w-80 mx-auto">
-                        <div class="py-4">
-                            <label class="text-gray-700 text-xs">利用期間</label>
-                            <div class="flex items-center">
-                                <input
-                                    class="inlin-block text-sm rounded-lg border border-gray-300 cursor-pointer focus:outline-none"
-                                    name="start_date"
-                                    type="date"
-                                >
-                                <span class="px-2">〜</span>
-                                <input
-                                    class="inlin-block text-sm rounded-lg border border-gray-300 cursor-pointer focus:outline-none"
-                                    name="end_date"
-                                    type="date"
-                                >
-                            </div>
-                        </div>
-                        <div class="py-4">
-                            <button type="submit" class="PButton-primary w-full">利用申請を行う</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            @if ($current_user != Auth::id())
+                <x-store-rental-log :item="$item" :current_user="$current_user" />
+            @else
+                <x-update-rental-log :item="$item" :current_user="$current_user" />
+            @endif
         </div>
         <div>
             <h3 class="PHeading3 border-l-4 p-2 border-blue-500">履歴</h3>

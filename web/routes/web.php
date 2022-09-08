@@ -3,8 +3,10 @@
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminItemController;
+use App\Http\Controllers\Admin\AdminRentalLogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\MypageController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,15 +41,23 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::post('/{id}/update', [AdminItemController::class, 'update'])->name('admin.items.update');
         Route::delete('/{id}/delete', [AdminItemController::class, 'destroy'])->name('admin.items.delete');
     });
+
+    Route::get('rental_logs', [AdminRentalLogController::class, 'index'])->name('admin.rental_logs.index');
 });
 
 Route::middleware(['auth'])->group(function () {
     Route::get('items/{id}', [ItemController::class, 'show'])->name('items.show');
+    Route::post('items/{id}', [ItemController::class, 'store'])->name('items.store');
+    Route::put('items/{id}', [ItemController::class, 'update'])->name('items.update');
+    Route::put('itemas/{id}', [ItemController::class, 'return'])->name('items.return');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
+    Route::post('mypage/update', [MypageController::class, 'update'])->name('mypage.update');
+    Route::get('mypage/logs', [MypageController::class, 'show'])->name('mypage.show');
 });
 
-Route::prefix('items')->group(function () {
-    Route::get('/search', [ItemController::class, 'search'])->name('items.search');
+Route::prefix('items_list')->group(function () {
+    Route::get('/keyword_search', [ItemListController::class, 'keyword_search'])->name('items_list.keyword_search');
+    Route::get('/search/{tag_name}', [ItemListController::class, 'tag_search'])->name('items_list.tag_name');
 });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

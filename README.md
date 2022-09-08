@@ -4,7 +4,7 @@
 - 認証機能は [Laravel Breeze](https://readouble.com/laravel/8.x/ja/starter-kits.html) を利用
 
 ### 開発に必要なドキュメント
-- [要件定義書](https://docs.google.com/document/d/10duBlZQbkTgJgwmTmz3qrdLy41xV0D3ZSUgYS2ggUdM/edit#)
+- [要件定義書](https://docs.google.com/document/d/1WyK23H-g68YtEqC5UfNn9OUFTweg5KgnZTsYA8m5xig/edit#heading=h.yzbstl3f1i9b)
 - [デザインカンプ](https://www.figma.com/file/QeXTIDAkIJGPLXe3VxIN7V/POSSE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA?node-id=0%3A1)
 
 

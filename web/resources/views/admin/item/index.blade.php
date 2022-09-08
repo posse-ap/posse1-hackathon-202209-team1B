@@ -1,9 +1,7 @@
 <x-admin-layout>
     <h2 class="text-2xl font-bold text-center mt-8 mb-12">備品</h2>
     <div class="text-right">
-        <a
-            href="{{ route('admin.items.create') }}"
-            class="PButton-primary">新規作成
+        <a href="{{ route('admin.items.create') }}" class="PButton-primary">新規作成
         </a>
     </div>
     <table class="table-fixed w-full">
@@ -20,41 +18,48 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($items as $item)
-                <tr class="border-y-2">
-                    <td class="px-4 py-6">{{ $item->id }}</td>
-                    <td class="px-4 py-6">{{ $item->is_public ? "はい" : "いいえ" }}</td>
-                    <td class="px-4 py-6">{{ $item->category->name ?? '' }}</td>
-                    <td class="px-4 py-6">
-                        <div class="flex items-center">
-                            @if (isset($item->image_path))
-                            <div class="mr-4 w-20">
-                                <img src="{{ \Storage::url($item->image_path) }}">
+            @if (!empty($items) && $items->count())
+                @foreach ($items as $item)
+                    <tr class="border-y-2">
+                        <td class="px-4 py-6">{{ $item->id }}</td>
+                        <td class="px-4 py-6">{{ $item->is_public ? 'はい' : 'いいえ' }}</td>
+                        <td class="px-4 py-6">{{ $item->category->name ?? '' }}</td>
+                        <td class="px-4 py-6">
+                            <div class="flex items-center">
+                                @if (isset($item->image_path))
+                                    <div class="mr-4 w-20">
+                                        <img src="{{ \Storage::url($item->image_path) }}">
+                                    </div>
+                                @endif
+                                @if (mb_strlen($item->name) > 20)
+                                    <span class="w-full">{{ mb_substr($item->name, 0, 20) }}…</span>
+                                @else
+                                    <span class="w-full">{{ $item->name }}</span>
+                                @endif
                             </div>
-                            @endif
-                            <span class="w-full">{{ $item->name }}</span>
-                        </div>
-                    </td>
-                    <td class="px-4 py-6">{{ $item->available_days }}日</td>
-                    <td class="px-4 py-6">{{ $item->provider }}</td>
-                    <td class="px-4 py-6">{{ $item->created_at }}</td>
-                    <td class="px-4 py-6 text-right">
-                        <form method="POST" class="flex">
-                            @csrf
-                            <a
-                                class="PButton-primary"
-                                href="{{ route('admin.items.edit', ['id' => $item->id]) }}">編集
-                            </a>
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button
-                                type="submit"
-                                class="PButton-red ml-6"
-                                formaction="{{ route('admin.items.delete', ['id' => $item->id]) }}">削除
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
+                        </td>
+                        <td class="px-4 py-6">{{ $item->available_days }}日</td>
+                        <td class="px-4 py-6">{{ $item->provider }}</td>
+                        <td class="px-4 py-6">{{ $item->created_at }}</td>
+                        <td class="px-4 py-6 text-right">
+                            <form method="POST" class="flex">
+                                @csrf
+                                <a class="PButton-primary"
+                                    href="{{ route('admin.items.edit', ['id' => $item->id]) }}">編集
+                                </a>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="PButton-red ml-6"
+                                    formaction="{{ route('admin.items.delete', ['id' => $item->id]) }}">削除
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
         </tbody>
     </table>
+    <div class="w-full mt-5">
+        <div class="w-1/2 mx-auto">{{ $items->links() }}</div>
+    </div>
+
 </x-admin-layout>
