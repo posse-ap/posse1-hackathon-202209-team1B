@@ -28,6 +28,16 @@ class Item extends Model
             ->get();
     }
 
+    public static function availableSoonItems(): Collection
+    {
+        $items = self::with('rental_logs')->whereHas('rental_logs', function($q){
+            $q->where('return_date',null);
+        })->get();
+        return $items->filter(function ($item, $key) {
+            return $item::whereDate('end_date', '<=',Carbon::now()->addDays(3));
+            });
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
