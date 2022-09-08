@@ -1,7 +1,7 @@
 <section>
     <div class="text-left flex mx-4">
         @if ( $item->rental_logs->first() )
-            <p class="h-4 font-bold mr-1">{{$item->rental_logs->first()->user->name}}さんが利用中</p>
+            <p class="h-4 font-bold">{{$item->rental_logs->first()->user->name}}さんが利用中</p>
             <p class="h-4 font-bold">（〜{{$item->rental_logs->first()->end_date->format('m/d')}}）</p>
         @else
             <p class="h-4"></p>
