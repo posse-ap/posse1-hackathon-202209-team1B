@@ -42,7 +42,9 @@ class ItemListController extends Controller
         }
 
         $items_amount = $items->count();
-        return view('items_list.index', compact('items' , 'items_amount', 'categories'));
+        $category_id = $request->category_id;
+        $title = $request->title;
+        return view('items_list.index', compact('items' , 'items_amount', 'categories' ,'category_id' , 'title'));
     }
 
     public function tag_search($tag_name)
