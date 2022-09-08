@@ -24,6 +24,29 @@
         </div>
         <div>
             <h3 class="PHeading3 border-l-4 p-2 border-blue-500">履歴</h3>
+
+            <table class="table-fixed w-full mt-3">
+                <thead>
+                    <tr>
+                        <th class="px-4 text-left w-20"></th>
+                        <th class="px-4 text-left w-40"></th>
+                        <th class="px-4 text-left w-40"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($item->rental_logs->reverse()->values() as $key => $rental_log)
+                        @if ($key < 5)
+                            <tr class="border-y-2">
+                                <td class="px-4 py-6 font-bold">{{ $rental_log->return_date ? '返却済み' : '' }}</td>
+                                <td class="px-4 py-6">{{ $rental_log->start_date->format('Y-m-d') }} ~
+                                    {{ $rental_log->end_date->format('Y-m-d') }}
+                                </td>
+                                <td class="px-4 py-6">{{ $rental_log->user->name }}</td>
+                            </tr>
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
         </div>
         <div>
             <h3 class="PHeading3 border-l-4 p-2 border-blue-500">情報</h3>
