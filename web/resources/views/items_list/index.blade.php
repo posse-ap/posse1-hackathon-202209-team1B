@@ -1,6 +1,29 @@
 <x-guest-layout>
     <section>
-        <form method="GET" action="{{ route('items_list.sort') }}" class="flex items-center shadow">
+        <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center shadow">
+            <p>カテゴリ：</p>
+            <div class="container flex mx-auto">
+                <div class="flex relative">
+                    <button class="PButton-primary w-full" type="submit" value="全て" name="category_id">全て</button>
+                    @foreach ($categories as $category)
+                        <button class="PButton-primary w-full" type="submit" value="{{ $category->id }}"
+                            name="category_id">{{ $category->name }}</button>
+                    @endforeach
+                </div>
+            </div>
+        </form>
+        <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center shadow">
+            <p>状態：</p>
+            <div class="container flex mx-auto">
+                <div class="flex relative">
+                        <button class="PButton-primary w-full" type="submit" value="全て" name="status">全て</button>
+                        <button class="PButton-primary w-full" type="submit" value="利用可能" name="status">利用可能</button>
+                        <button class="PButton-primary w-full" type="submit" value="利用中" name="status">利用中</button>
+                </div>
+            </div>
+        </form>
+        <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center shadow">
+            <p>並び順：</p>
             <div class="container flex mx-auto">
                 <div class="flex relative">
                     <button type="submit" value="新着順" name="sort">新着順</button>

@@ -56,9 +56,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('items_list')->group(function () {
-    Route::get('/keyword_search', [ItemListController::class, 'keyword_search'])->name('items_list.keyword_search');
+    Route::get('/search', [ItemListController::class, 'search'])->name('items_list.search');
     Route::get('/search/{tag_name}', [ItemListController::class, 'tag_search'])->name('items_list.tag_name');
-    Route::get('/search', [ItemListController::class, 'sort'])->name('items_list.sort');
 });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
