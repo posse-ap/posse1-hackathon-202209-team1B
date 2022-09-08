@@ -1,5 +1,6 @@
 <x-guest-layout>
     <section>
+        <h2>「」の備品一覧</h2>
         <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center shadow">
             <p>カテゴリ：</p>
             <div class="container flex mx-auto">
