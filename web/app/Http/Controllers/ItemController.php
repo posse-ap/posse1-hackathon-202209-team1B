@@ -41,4 +41,15 @@ class ItemController extends Controller
         }
         return back();
     }
+
+    public function return(ItemUseRequest $request, int $id)
+    {
+        $rental_log = RentalLog::find($id);
+        $carbon = new Carbon;
+        if ($rental_log && $rental_log->user_id == Auth::id()) {
+            $rental_log->return_date = $carbon->today()->toDateTimeString();
+            $rental_log->save();
+        }
+        return back();
+    }
 }
