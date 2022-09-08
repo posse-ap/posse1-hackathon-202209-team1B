@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangeUserInformationRequest;
 use App\Models\User;
+use App\Models\RentalLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +13,9 @@ class MypageController extends Controller
 {
     public function index()
     {
-        return view('mypage');
+        $user_id = Auth::id();
+        $rental_logs = RentalLog::with('item')->where('user_id', $user_id)->get();
+        return view('mypage', compact('rental_logs'));
     }
 
     public function update(ChangeUserInformationRequest $request)
