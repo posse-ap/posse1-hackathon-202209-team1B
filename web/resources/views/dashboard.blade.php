@@ -49,7 +49,9 @@
                 </a>
             </div>
         </div>
-
+    @if(count($availableSoonItems) == 0)
+    <p></p>
+    @else
     <div class="h-full px-8 sm:px-12 lg:px-24">
         <div class="py-12 text-center">
             <h2 class="text-2xl font-bold py-6">もうすぐ利用できます</h2>
@@ -70,6 +72,7 @@
                 </a>
             </div>
         </div>
+        @endif
 
         @foreach ($categoryItems as $category)
             <div class="py-12 text-center">
