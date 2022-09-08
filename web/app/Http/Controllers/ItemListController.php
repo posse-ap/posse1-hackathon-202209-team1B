@@ -24,4 +24,24 @@ class ItemListController extends Controller
         $items_amount = $items->count();
         return view('items_list.index', compact('items' , 'items_amount'));
     }
+
+
+    public function sort(Request $request)
+    {
+        $search_keyword = $request->session()->get('search_keyword');
+        $pat = '%' . addcslashes($search_keyword, '%_\\') . '%';
+
+
+        if ($request->sort === "新着順") {
+            $items = Item::where('name', 'LIKE', $pat)->latest()->get();
+        } elseif ($request->sort === "人気順") {
+            // $items = Item::where('name', 'LIKE', $pat)->latest()->get();
+        } else{
+            return back();
+        }
+
+        $items_amount = $items->count();
+        return view('items_list.index', compact('items' , 'items_amount'));
+
+    }
 }

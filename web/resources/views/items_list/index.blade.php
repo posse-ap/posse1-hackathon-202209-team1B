@@ -1,6 +1,13 @@
 <x-guest-layout>
     <section>
-        {{-- #6 --}}
+        <form method="GET" action="{{ route('items_list.sort') }}" class="flex items-center shadow">
+            <div class="container flex mx-auto">
+                <div class="flex relative">
+                    <button type="submit" value="新着順" name="sort">新着順</button>
+                    <button type="submit" value="人気順" name="sort">人気順</button>
+                </div>
+            </div>
+        </form>
     </section>
 
     <section class="w-[1240px] mx-auto mt-10">
