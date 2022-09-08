@@ -1,6 +1,6 @@
 <x-guest-layout>
     <section class="w-[1280px] mx-auto mt-10">
-        <h2 class="text-2xl font-bold border-l-4 py-2 pl-2 border-[#0071BC]">「」の備品一覧</h2>
+        <h2 class="text-2xl font-bold border-l-4 py-2 pl-2 border-[#0071BC]">「{{ $title }}」の備品一覧</h2>
         <form method="GET" action="{{ route('items_list.search') }}" class="flex items-center mt-10">
             <p class="w-20 text-right font-bold text-black opacity-50 mr-4">カテゴリ：</p>
             <div class="container flex mx-auto">
