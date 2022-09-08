@@ -31,7 +31,11 @@
                                         <img src="{{ \Storage::url($item->image_path) }}">
                                     </div>
                                 @endif
-                                <span class="w-full">{{ $item->name }}</span>
+                                @if (mb_strlen($item->name) > 20)
+                                    <span class="w-full">{{ mb_substr($item->name, 0, 20) }}…</span>
+                                @else
+                                    <span class="w-full">{{ $item->name }}</span>
+                                @endif
                             </div>
                         </td>
                         <td class="px-4 py-6">{{ $item->available_days }}日</td>
