@@ -40,6 +40,31 @@ class Item extends Model
         return $items;
     }
 
+    public static function isAvailable($pat): Collection
+    {
+        $items = self::where('name', 'LIKE', $pat)->with(['rental_logs' => function($query) {
+            $query->where('return_date',  '!=', null);
+        }])
+        ->whereHas('rental_logs',function($query) {
+            $query->where('return_date',  '!=', null);
+        })
+        ->get();
+        return $items;
+    }
+
+    public static function isUnavailable($pat): Collection
+    {
+        $items = self::where('name', 'LIKE', $pat)->with(['rental_logs' => function($query) {
+            $query->where('return_date',  null);
+        }])
+        ->whereHas('rental_logs',function($query) {
+            $query->where('return_date',  null);
+        })
+        ->get();
+        return $items;
+    }
+
+
     public function category()
     {
         return $this->belongsTo(Category::class);
