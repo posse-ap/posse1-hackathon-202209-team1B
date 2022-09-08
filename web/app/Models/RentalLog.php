@@ -14,6 +14,10 @@ class RentalLog extends Model
         return $this->belongsTo(Item::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     /**
      * The attributes that are mass assignable.
      *
