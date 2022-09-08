@@ -15,6 +15,18 @@
                         </svg>
                     </div>
                 </div>
+            </form>
+            <div class="mt-5 text-white">
+                <span class="mr-3">キーワード : </span>
+                <a class="mr-3" href="{{ route('items_list.tag_name', ['tag_name' => 'GO言語']) }}"
+                    class="text-white">GO言語</a>
+                <a class="mr-3" href="{{ route('items_list.tag_name', ['tag_name' => 'Rust']) }}"
+                    class="text-white">Rust</a>
+                <a class="mr-3" href="{{ route('items_list.tag_name', ['tag_name' => 'スクラム']) }}"
+                    class="text-white">スクラム</a>
+                <a class="mr-3" href="{{ route('items_list.tag_name', ['tag_name' => 'Laravel']) }}"
+                    class="text-white">Laravel</a>
+            </div>
         </div>
     </div>
     <div class="h-full px-8 sm:px-12 lg:px-24">
@@ -28,7 +40,8 @@
                 @endforeach
             </div>
             <div>
-                <a href="/" class="inline-block bg-transparent hover:bg-gray-100 text-gray-500 font-semibold py-2 px-6 border border-gray-500 rounded">
+                <a href="/"
+                    class="inline-block bg-transparent hover:bg-gray-100 text-gray-500 font-semibold py-2 px-6 border border-gray-500 rounded">
                     <div class="flex items-center">
                         <span class="px-2">すべて見る</span>
                         <x-codicon-triangle-down class="inline-block w-5 h-5" />
@@ -48,7 +61,8 @@
                     @endforeach
                 </div>
                 <div>
-                    <a href="/" class="inline-block bg-transparent hover:bg-gray-100 text-gray-500 font-semibold py-2 px-6 border border-gray-500 rounded">
+                    <a href="/"
+                        class="inline-block bg-transparent hover:bg-gray-100 text-gray-500 font-semibold py-2 px-6 border border-gray-500 rounded">
                         <div class="flex items-center">
                             <span class="px-2">すべて見る</span>
                             <x-codicon-triangle-down class="inline-block w-5 h-5" />
