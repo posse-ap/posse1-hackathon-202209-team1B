@@ -51,7 +51,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('items/{id}', [ItemController::class, 'update'])->name('items.update');
     Route::put('itemas/{id}', [ItemController::class, 'return'])->name('items.return');
     Route::get('mypage', [MypageController::class, 'index'])->name('mypage');
-    Route::post('mypage/update', [MypageController::class, 'update'])->name('mypage.update');
+    Route::post('mypage/update',  [MypageController::class,  'update'])->name('mypage.update');
+    Route::post('mypage/password_update', [MypageController::class, 'password_update'])->name('mypage.password_update');
     Route::get('mypage/logs', [MypageController::class, 'show'])->name('mypage.show');
 });
 
