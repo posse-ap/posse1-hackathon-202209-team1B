@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    <body class="font-sans antialiased">
-        <div class="text-sm relative">
+    <!-- Scripts -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
+</head>
 
-            <!-- Page Heading -->
-            @include('components.header')
+<body class="font-sans antialiased">
+    <div class="text-sm relative">
 
-            <!-- Page Content -->
-            <main class="h-full">
-                {{ $slot }}
-            </main>
+        <!-- Page Heading -->
+        @include('components.header')
 
-            <!-- Page Footer -->
-            @include('components.footer')
-        </div>
-    </body>
+        <!-- Page Content -->
+        <main class="h-full min-h-[calc(100vh-380px)]">
+            {{ $slot }}
+        </main>
+
+        <!-- Page Footer -->
+        @include('components.footer')
+    </div>
+</body>
+
 </html>

@@ -24,12 +24,41 @@ class Item extends Model
     public static function latestItems(): Collection
     {
         return self::whereDate('created_at', '>=', Carbon::now()->subDays(self::LATEST_ITEMS_DAYS))
-            ->with('category')
+            ->with('category')->withRentalLogsWithUser()
             ->get();
+    }
+
+    public static function availableSoonItems(): Collection
+    {
+        $items = self::with(['rental_logs' => function($query) {
+            $query->where('return_date',null)->whereDate('end_date', '<=',Carbon::now()->addDays(3));
+        }])
+        ->whereHas('rental_logs',function($query) {
+            $query->where('return_date',null)->whereDate('end_date', '<=',Carbon::now()->addDays(3));
+        })
+        ->get();
+        return $items;
     }
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function rental_logs()
+    {
+        return $this->hasMany(RentalLog::class);
+    }
+
+    public function getLatestRentalLog()
+    {
+        return $this->rental_logs()->where("return_date", null)->first();
+    }
+
+    public function scopeWithRentalLogsWithUser($query)
+    {
+        $query->with(['rental_logs' => function ($query) {
+            $query->where('return_date', NULL)->with('user');
+        }]);
     }
 }

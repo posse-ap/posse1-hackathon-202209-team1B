@@ -5442,11 +5442,17 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var _img_preview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img_preview */ "./resources/js/img_preview.js");
+/* harmony import */ var _img_preview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_img_preview__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _open_modal_to_login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./open_modal_to_login */ "./resources/js/open_modal_to_login.js");
+/* harmony import */ var _open_modal_to_login__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_open_modal_to_login__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 
 
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
+
+
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].start();
 
 /***/ }),
 
@@ -5490,6 +5496,68 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+/***/ }),
+
+/***/ "./resources/js/img_preview.js":
+/*!*************************************!*\
+  !*** ./resources/js/img_preview.js ***!
+  \*************************************/
+/***/ (() => {
+
+window.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("create_new_fixtures_image") !== null) {
+    document.getElementById("create_new_fixtures_image").addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        document.querySelector("#create_new_fixtures_image_preview").src = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  if (document.getElementById("edit_fixtures_image") !== null) {
+    document.getElementById("edit_fixtures_image").addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        document.querySelector("#edit_fixtures_image_preview").src = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/open_modal_to_login.js":
+/*!*********************************************!*\
+  !*** ./resources/js/open_modal_to_login.js ***!
+  \*********************************************/
+/***/ (() => {
+
+var modal = document.getElementById("modal_to_login");
+var buttons = document.getElementsByName("open_modal_button_to_login");
+var closeButton = document.getElementById("close_button");
+var outer = document.getElementById("modal_outer");
+
+if (modal && buttons) {
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      modal.classList.remove("hidden");
+    });
+  });
+  outer.addEventListener("click", function () {
+    modal.classList.add("hidden");
+  });
+}
 
 /***/ }),
 
