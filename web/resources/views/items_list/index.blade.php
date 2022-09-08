@@ -1,10 +1,15 @@
 <x-guest-layout>
-    <p>{{ $items_amount }}件見つかりました</p>
+    <section>
+        {{-- #6 --}}
+    </section>
 
-    @foreach ($items as $item)
-        <div>
-            <p class="font-bold">{{ $item->category->name }}</p>
-            <p class="font-bold">{{ $item->name }}</p>
+    <section class="w-[1240px] mx-auto mt-10">
+        <p><span class="font-bold text-lg mx-2">{{ $items_amount }}</span>件見つかりました</p>
+
+        <div class="grid grid-cols-4 gap-y-10 mt-10">
+            @foreach ($items as $item)
+                <x-item-card :item="$item" />
+            @endforeach
         </div>
-    @endforeach
+    </section>
 </x-guest-layout>
