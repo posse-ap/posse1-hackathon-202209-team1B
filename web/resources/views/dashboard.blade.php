@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <x-modal-to-login />
     <div class="bg-hero-pattern bg-cover w-full flex flex-col items-center">
         <h1 class="text-white font-bold text-3xl py-8 mt-4">コミュニティで作る、POSSEのライブラリ</h1>
         <div class="grow py-4 mb-8">
