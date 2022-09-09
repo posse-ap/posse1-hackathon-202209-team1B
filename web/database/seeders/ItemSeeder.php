@@ -24,7 +24,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'Goプログラミング実践入門　標準ライブラリでゼロからWebアプリを作る impress top gearシリーズ',
-                'image_path' => $path,
+                'image_path' => "public/go.jpg",
                 'available_days' => 14,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -32,7 +32,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'Rustプログラミング入門',
-                'image_path' => $path,
+                'image_path' => "public/rust.jpg",
                 'available_days' => 14,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -40,7 +40,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'Go言語ハンズオン',
-                'image_path' => $path,
+                'image_path' => 'public/go2.jpg',
                 'available_days' => 2,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -48,7 +48,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'PHPフレームワーク Laravel実践',
-                'image_path' => $path,
+                'image_path' => 'public/laravel.jpeg',
                 'available_days' => 2,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -56,7 +56,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 2,
                 'name' => 'イシューからはじめよ──知的生産の「シンプルな本質」',
-                'image_path' => $path,
+                'image_path' => 'public/issue.jpg',
                 'available_days' => 4,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -64,7 +64,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 2,
                 'name' => '1日1話、読めば心が熱くなる365人の仕事の教科書',
-                'image_path' => $path,
+                'image_path' => 'public/work.jpeg',
                 'available_days' => 14,
                 'is_public' => false,
                 'provider' => '株式会社アンチパターン',
@@ -72,7 +72,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'PHPフレームワークLaravel入門 第2版',
-                'image_path' => $path,
+                'image_path' => 'public/laravel2.png',
                 'available_days' => 14,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -80,7 +80,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => '1冊ですべて身につくHTML & CSSとWebデザイン入門講座',
-                'image_path' => $path,
+                'image_path' => 'public/htmlcss.jpg',
                 'available_days' => 11,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
