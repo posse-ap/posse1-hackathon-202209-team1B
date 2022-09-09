@@ -152,7 +152,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 5,
                 'name' => 'か「」く「」し「」ご「」と「',
-                'image_path' => $path,
+                'image_path' => "public/kakusigoto.jpg",
                 'available_days' => 12,
                 'is_public' => true,
                 'provider' => '角川文庫',
@@ -160,7 +160,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 5,
                 'name' => '青くて痛くて脆い',
-                'image_path' => $path,
+                'image_path' => "public/aokuteitakutemoroi.jpeg",
                 'available_days' => 12,
                 'is_public' => true,
                 'provider' => '角川文庫',
@@ -168,7 +168,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 5,
                 'name' => '君の膵臓をたべたい',
-                'image_path' => $path,
+                'image_path' => "public/kimisui.jpeg",
                 'available_days' => 12,
                 'is_public' => true,
                 'provider' => '角川文庫',
@@ -176,7 +176,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 5,
                 'name' => '時をかける少女',
-                'image_path' => $path,
+                'image_path' => "public/tokiokakerusyouzyo.jpg",
                 'available_days' => 12,
                 'is_public' => true,
                 'provider' => '角川文庫',
