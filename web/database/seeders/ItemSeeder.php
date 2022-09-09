@@ -102,17 +102,9 @@ class ItemSeeder extends Seeder
                 'provider' => 'スティーブン・R・コヴィー',
             ],
             [
-                'category_id' => 1,
-                'name' => '1冊ですべて身につくHTML & CSSとWebデザイン入門講座',
-                'image_path' => $path,
-                'available_days' => 1,
-                'is_public' => true,
-                'provider' => '楽天グループ株式会社',
-            ],
-            [
                 'category_id' => 4,
                 'name' => '税金で買った本',
-                'image_path' => $path,
+                'image_path' => "public/zeikinndekattahonn.jpg",
                 'available_days' => 1,
                 'is_public' => true,
                 'provider' => 'ずいの',
