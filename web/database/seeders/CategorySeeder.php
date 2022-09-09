@@ -20,6 +20,8 @@ class CategorySeeder extends Seeder
             ['name' => '書籍：技術書'],
             ['name' => '書籍：ビジネス書'],
             ['name' => 'エンターテインメント'],
+            ['name' => '仕事・職業'],
+            ['name' => '小説'],
         ];
 
         Category::insert($data);
