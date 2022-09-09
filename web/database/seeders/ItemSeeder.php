@@ -88,7 +88,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'Reactビギナーズガイド ―コンポーネントベースのフロントエンド開発入門',
-                'image_path' => $path,
+                'image_path' => 'public/react.jpeg',
                 'available_days' => 11,
                 'is_public' => true,
                 'provider' => '株式会社アンチパターン',
@@ -96,7 +96,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 2,
                 'name' => '7つの習慣',
-                'image_path' => $path,
+                'image_path' => 'public/seven.jpg',
                 'available_days' => 1,
                 'is_public' => true,
                 'provider' => 'スティーブン・R・コヴィー',
