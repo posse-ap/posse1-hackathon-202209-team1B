@@ -144,7 +144,7 @@ class ItemSeeder extends Seeder
             [
                 'category_id' => 2,
                 'name' => '嫌われる勇気',
-                'image_path' => $path,
+                'image_path' => "public/kirawareruyuuki.jpeg",
                 'available_days' => 5,
                 'is_public' => true,
                 'provider' => 'ポプラ社',
